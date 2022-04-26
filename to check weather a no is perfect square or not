@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+
+void main()
+{
+    int n,i,a;
+    printf("enter a no");
+    scanf("%d",&n);
+
+    for(i=1;i<=(n/2)+1;i++)
+    {
+        a=i*i;
+        if(a==n)
+        {
+            printf("it is a perfect square");
+            break;
+        }
+        else if(i==n/2 && a!=n)
+            printf("it is not a perfect square");
+
+
+
+
+    }
+
+    getch();
+}
