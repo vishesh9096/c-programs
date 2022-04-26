@@ -1,0 +1,20 @@
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    int n,i,t1,t2,t3;
+    printf("enter vlaue of n");
+    scanf("%d",&n);
+    t1=0;
+    t2=1;
+    for(i=0;i<=n;i++)
+    {
+       t3=t1+t2;
+       printf("  %d",t3);
+       t1=t2;
+       t2=t3;
+
+    }
+ getch();
+}
