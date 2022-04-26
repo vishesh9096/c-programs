@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+    {
+        int n,term,x,sum,a;
+        printf("enter a no");
+        scanf("%d",&n);
+        x=n;
+        sum=0;
+        term=0;
+
+
+        while(n!=0)
+        {
+            term=n%10;
+            printf("\n %d",term);
+            a=term*term*term;
+            sum=sum+a;
+            printf("\n%d",sum);
+            n=n/10;
+
+        }
+        if(sum==x)
+            printf("it is an amstrong no");
+        else
+            printf("it is not an amstrong no");
+
+        getch();
+
+
+    }
