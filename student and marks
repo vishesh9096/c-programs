@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+
+void main()
+{
+    int n,i,marks[60],k,temp;
+    char name[60][40],p[60];
+
+    printf("enter no of students");
+    scanf("%d",&n);
+
+    printf("enter name of students and marks");
+
+    for(i=1;i<=n;i++)
+    {
+        scanf("%s",name[i]);
+        scanf("%d",&marks[i]);
+    }
+
+    for(k=1;k<=n-1;k++)
+    {
+        for(i=1;i<=n-k;i++)
+        {
+            if(marks[i]<marks[i+1])
+            {
+                temp=marks[i];
+                marks[i]=marks[i+1];
+                marks[i+1]=temp;
+
+                strcpy(p,name[i]);
+                strcpy(name[i],name[i+1]);
+                strcpy(name[i+1],p);
+
+            }
+        }
+    }
+
+getch();
+
+}
