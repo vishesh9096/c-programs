@@ -1,0 +1,101 @@
+#include<conio.h>
+#include<stdio.h>
+
+struct PCM
+{
+    int P;
+    int C;
+    int M;
+};
+
+struct Student
+{
+    char Sname[30];
+    char Sid[10];
+    int total;
+    struct PCM sub;
+};
+
+
+
+
+void sort(int n,struct Student srec[20],struct Student temp[20])
+{
+    int i,j;
+
+
+    for(i=1;i<=n-1;i++)
+    {
+        for(j=1;j<=n-i;j++)
+        {
+            if(srec[i].total<srec[i+1].total)
+            {
+                temp[i]=srec[i];
+                srec[i]=srec[i+1];
+                srec[i+1]=temp[i];
+            }
+            else if(srec[i].total==srec[i+1].total)
+            {
+                if(srec[i].sub.M>srec[i+1].sub.M)
+                {
+                    temp[i]=srec[i];
+                    srec[i]=srec[i+1];
+                    srec[i+1]=temp[i];
+                }
+                else if(srec[i].sub.M==srec[i+1].sub.M)
+                {
+                    if(srec[i].sub.P>srec[i+1].sub.P)
+                    {
+                        temp[i]=srec[i];
+                        srec[i]=srec[i+1];
+                        srec[i+1]=temp[i];
+                    }
+                    else if(srec[i].sub.P==srec[i+1].sub.P)
+                    {
+                        if(srec[i].sub.C>srec[i+1].sub.C)
+                        {
+                           temp[i]=srec[i];
+                            srec[i]=srec[i+1];
+                            srec[i+1]=temp[i];
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+
+void main()
+{
+    struct Student srec[20];
+    struct Student temp[20];
+    struct PCM sub[20];
+
+    int n,i;
+
+    printf("enter total no of students");
+    scanf("%d",&n);
+    printf("enter student name,id,PCM marks respectively ");
+    for(i=1;i<=n;i++)
+    {
+        scanf("%s%s%d%d%d",srec[i].Sname,srec[i].Sid,&srec[i].sub.P,&srec[i].sub.C,&srec[i].sub.M);
+        srec[i].total=srec[i].sub.P+srec[i].sub.C+srec[i].sub.M;
+
+    }
+
+    sort(n,srec,temp);
+
+    for(i=1;i<=n;i++)
+    {
+        printf("\n %4s   %4s  %4d",srec[i].Sname,srec[i].Sid,srec[i].total);
+
+    }
+
+
+
+
+
+
+}
